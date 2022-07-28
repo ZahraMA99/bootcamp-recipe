@@ -1,0 +1,28 @@
+.main-container {
+  height: 40px;
+  background-color: rgb(225, 222, 193);
+  box-shadow: 2px 2px #cbc5c5;
+}
+.input {
+  padding: 5px;
+  width: 200px;
+  margin: 3px 3px 3px 3px;
+}
+#recipe-main-container {
+  margin-top: 20px;
+  display: grid;
+  background-color: rgb(209, 206, 104);
+  grid-gap: 10px;
+  padding: 10px;
+}
+#image {
+  border-radius: 2px solid;
+  width: 300px;
+  height: 300px;
+}
+
+ul {
+  font-size: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
