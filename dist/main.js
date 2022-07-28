@@ -9,5 +9,5 @@ $("#search").on("click", function () {
 });
 
 $("#recipe-main-container").on("click", ".image", function () {
-  alert($(this).siblings("ul").children("li"));
+  alert('');
 });
