@@ -6,23 +6,27 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.static(path.join(__dirname, "node_modules")));
 
-app.get("/sanity/:ingredient", (request, response) => {
+app.get("/sanity", function (request, response) {
+  response.send("Ok");
+});
+
+app.get("/recipes/:ingredient", function (request, response) {
   let ingredient = request.params.ingredient;
   axios
-    .get("https://recipes-goodness.herokuapp.com/recipes/YOUR_INGREDIENT")
+    .get(`https://recipes-goodness.herokuapp.com/recipes/${ingredient}`)
     .then(function (res) {
-      const recipes = res.data.results;
-      recipes.map((recipe) => ({
+      let recipes = res.data.results;
+      let r = recipes.map((recipe) => ({
+        ingredients: recipe.ingredients,
         title: recipe.title,
         thumbnail: recipe.thumbnail,
-        ingredients: recipe.ingredients,
-        link: recipe.href,
+        href: recipe.href,
       }));
-      response.send(recipes);
+      response.send(r);
     });
 });
 
-const port = 8080;
+const port = 3003;
 app.listen(port, function () {
   console.log(`Running server on port ${port}`);
 });

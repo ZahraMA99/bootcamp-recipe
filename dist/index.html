@@ -8,41 +8,43 @@
     <title>Document</title>
   </head>
   <body>
-    <!--Code-->
-    <div class="main-container">
-      <div class="header-container">
-        <input class="input" type="text" placeholder="Enter Ingredient" />
-        <button id="search">Search!</button>
-      </div>
-
-      <script id="recipe-container" type="text/x-handlebars-template">
-        {{#each recipe}}
-          <div>
-            <div>
-              <a href="{{link}}">{{title}}</a>
-            </div>
-            <div>
-              <img id="image" src="{{thumbnail}}" />
-            </div>
-            <div>
-              <h3>Ingredients</h3>
-            </div>
-            <div>
-              <ul>
-                {{#each ingredients}}
-                  <li>{{this}}</li>
-                {{/each}}
-              </ul>
-            </div>
-          </div>
-        {{/each}}
-      </script>
+    <!--code-->
+    <div>
+      <input id="input" type="text" placeholder="enter ingredient " />
+      <button id="search">Search</button>
     </div>
-    <div id="recipe-main-container"></div>
+    <div class="recipes-container"></div>
+   
+    <script id="recipe-container" type="text/x-handlebars-template">
+      {{#each recipe}}
+        <div>
+          <div id="title">
+            <a href="{{href}}">{{title}}</a>
+         </div>
+          <div>
+            <img id="image" src="{{thumbnail}}" data-src={{thumbnail}} />
+          </div>
+          <div>
+            <h3>Ingredients</h3>
+          </div>
+          <div>
+            <ul>
+              {{#each ingredients}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+  </div>
+  <div id="recipe-main-container"></div>
+    
+    
 
     <!-- scripts import -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <script src="./Renderer.js"></script>
     <script src="./main.js"></script>
   </body>
